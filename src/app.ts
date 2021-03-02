@@ -19,7 +19,8 @@ function hmacSHA256(apiKey: string, time: number, nonce: string, organizationId:
 	const hmac = hmacSHA256(API_KEY, timestamp, nonce, ORGANIZATION_ID, 'GET', endpoint, null);
 
 	axios({
-		url: 'https://api2.nicehash.com' + endpoint,
+		baseURL: 'https://api2.nicehash.com',
+		url: endpoint,
 		method: 'GET',
 		headers: {
 			'X-Time': timestamp,
