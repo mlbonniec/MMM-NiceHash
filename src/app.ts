@@ -15,7 +15,7 @@ function hmacSHA256(apiKey: string, time: number, nonce: string, organizationId:
 }
 
 (async function request(): Promise<void> {
-	const { data: { serverTime: timestamp } }:  { data: { serverTime: number } } = await axios.get('https://api2.nicehash.com/api/v2/time');
+	const timestamp = Date.now();
 	const hmac = hmacSHA256(API_KEY, timestamp, nonce, ORGANIZATION_ID, 'GET', endpoint, null);
 
 	axios({
