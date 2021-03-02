@@ -1,0 +1,40 @@
+{
+  "name": "mmm-nicehash",
+  "version": "1.0.0",
+  "main": "src/app.ts",
+  "scripts": {
+    "dev": "ts-node -r dotenv/config .",
+    "build": "tsc",
+    "prod": "node -r dotenv/config dist/app.js",
+    "start": "npm run build && npm run prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlbonniec/mmm-nicehash.git"
+  },
+  "keywords": [
+    "crypto",
+    "mining",
+    "nicehash",
+    "btc",
+    "bitcoin"
+  ],
+  "author": "Mathis Le Bonniec",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/mlbonniec/mmm-nicehash/issues"
+  },
+  "homepage": "https://github.com/mlbonniec/mmm-nicehash#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31",
+    "@types/uuid": "^8.3.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.2"
+  }
+}

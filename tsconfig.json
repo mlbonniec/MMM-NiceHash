@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "preserveConstEnums": true,
+		"sourceMap": false,
+		"target": "es5",
+		"outDir": "./dist",
+		"typeRoots": [
+			"./node_modules/@types",
+			"./src/@types",
+		],
+		"esModuleInterop": true,
+		"resolveJsonModule": true
+	},
+	"allowSyntheticDefaultImports": true,
+  "include": ["src/"],
+  "exclude": ["./node_modules", "./dist"]
+}
