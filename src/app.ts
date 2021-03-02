@@ -9,10 +9,9 @@ const requestId: string = uuid();
 const endpoint: string = '/main/api/v2/mining/rigs/stats/unpaid';
 
 function hmacSHA256(apiKey: string, time: number, nonce: string, organizationId: string, method: Method, endpoint: string, query?: string): string {
-	const hmac = createHmac('sha256', API_SECRET_KEY);
 	const data = `${apiKey}\0${time}\0${nonce}\0\0${organizationId}\0\0${method}\0${endpoint}\0${query ?? ''}`;
 
-	return hmac.update(data).digest('hex');
+	return createHmac('sha256', API_SECRET_KEY).update(data).digest('hex');
 }
 
 (async function request(): Promise<void> {
