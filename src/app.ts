@@ -19,19 +19,32 @@ function hmacSHA256(apiKey: string, time: number, nonce: string, organizationId:
 	const hmac = hmacSHA256(API_KEY, timestamp, nonce, ORGANIZATION_ID, 'GET', endpoint, null);
 
 	try {
-	.then(res => {
-		const { data: { data } } = res;
 		/* Test data, because I don't have mining rigs */
 		// const data = [
 		// 	[1602528000000, 0, 0.00000518, 7e-8, 0.000009475961146660826, 0],
     // 	[1602528000000, 3, 0.00000518, 2.2e-7, 0.000009475961146660826, 0],
     // 	[1601923500000, 53, 0.00008685, 0.00007425, 0.00004878825729289759, 0]
 		// ];
+		const { data: prices } = await axios({ url: 'https://blockchain.info/ticker' });
+		const { data: { data } } = await axios({
+			baseURL: 'https://api2.nicehash.com',
+			url: endpoint,
+			method: 'GET',
+			headers: {
+				'X-Time': timestamp,
+				'X-Nonce': nonce,
+				'X-Organization-Id': ORGANIZATION_ID,
+				'X-Request-Id': requestId,
+				'X-Auth': `${API_KEY}:${hmac}`
+			},
+		})
 		
 		const profitabilities: number[] = data.map(e => e[4]);
 		const profitability: number = profitabilities.reduce((a, b) => a + b, 0);
+		const receipt = prices.USD.sell * profitability;
 		
 		console.log(`You should earn ${profitability} BTC today. (but I'm not sure...)`);
+		console.log(`${profitability} BTC should represents ${receipt} USD.`);
 	} catch (unknownError: unknown) {
 		const error = (unknownError as AxiosError).message
 		console.log(error);
