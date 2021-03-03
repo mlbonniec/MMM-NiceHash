@@ -30,6 +30,19 @@ function hmacSHA256(apiKey: string, time: number, nonce: string, organizationId:
 			'X-Auth': `${API_KEY}:${hmac}`
 		},
 	})
-	.then(res => console.log(res.data))
+	.then(res => {
+		const { data: { data } } = res;
+		/* Test data, because I don't have mining rigs */
+		// const data = [
+		// 	[1602528000000, 0, 0.00000518, 7e-8, 0.000009475961146660826, 0],
+    // 	[1602528000000, 3, 0.00000518, 2.2e-7, 0.000009475961146660826, 0],
+    // 	[1601923500000, 53, 0.00008685, 0.00007425, 0.00004878825729289759, 0]
+		// ];
+		
+		const profitabilities: number[] = data.map(e => e[4]);
+		const profitability: number = profitabilities.reduce((a, b) => a + b, 0);
+		
+		console.log(`You should earn ${profitability} BTC today. (but I'm not sure...)`);
+	})
 	.catch((error: AxiosError) => console.log(error.response.data));
 })();
