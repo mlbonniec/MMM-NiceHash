@@ -37,7 +37,7 @@ function hmacSHA256(apiKey: string, time: number, nonce: string, organizationId:
 				'X-Request-Id': requestId,
 				'X-Auth': `${API_KEY}:${hmac}`
 			},
-		})
+		});
 		
 		const profitabilities: number[] = data.map(e => e[4]);
 		const profitability: number = profitabilities.reduce((a, b) => a + b, 0);
@@ -46,7 +46,8 @@ function hmacSHA256(apiKey: string, time: number, nonce: string, organizationId:
 		console.log(`You should earn ${profitability} BTC today. (but I'm not sure...)`);
 		console.log(`${profitability} BTC should represents ${receipt} USD.`);
 	} catch (unknownError: unknown) {
-		const error = (unknownError as AxiosError).message
-		console.log(error);
+		const error = (unknownError as AxiosError);
+
+		console.log(error.message);
 	}
 })();
