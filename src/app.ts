@@ -41,13 +41,15 @@ function hmacSHA256(apiKey: string, time: number, nonce: string, organizationId:
 		
 		const profitabilities: number[] = data.map(e => e[4]);
 		const profitability: number = profitabilities.reduce((a, b) => a + b, 0);
-		const receipt = prices.USD.sell * profitability;
 		
 		console.log(`You should earn ${profitability} BTC today. (but I'm not sure...)`);
-		console.log(`${profitability} BTC should represents ${receipt} USD.`);
-		console.log(`If my calcul is wrong, the next one should be better`);
-		console.log(`You should earn ${data[0][4]} BTC today. (but I'm not sure...)`);
-		console.log(`${data[0][4]} BTC should represents ${data[0][4] * prices.USD.sell} USD.`);
+		console.log(`${profitability} BTC should represents ${profitability * prices.USD.sell} USD.`);
+		console.log(`\nIf my calculation is wrong, the next one should be better.\n`);
+		
+		const profitability2 = data[0]?.[4] ?? 0;
+		
+		console.log(`You should earn ${profitability2} BTC today. (but I'm not sure...)`);
+		console.log(`${profitability2} BTC should represents ${profitability2 * prices.USD.sell} USD.`);
 	} catch (unknownError: unknown) {
 		const error = (unknownError as AxiosError);
 
