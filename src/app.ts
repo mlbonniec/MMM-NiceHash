@@ -45,6 +45,9 @@ function hmacSHA256(apiKey: string, time: number, nonce: string, organizationId:
 		
 		console.log(`You should earn ${profitability} BTC today. (but I'm not sure...)`);
 		console.log(`${profitability} BTC should represents ${receipt} USD.`);
+		console.log(`If my calcul is wrong, the next one should be better`);
+		console.log(`You should earn ${data[0][4]} BTC today. (but I'm not sure...)`);
+		console.log(`${data[0][4]} BTC should represents ${data[0][4] * prices.USD.sell} USD.`);
 	} catch (unknownError: unknown) {
 		const error = (unknownError as AxiosError);
 
