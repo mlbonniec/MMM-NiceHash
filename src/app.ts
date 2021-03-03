@@ -18,18 +18,7 @@ function hmacSHA256(apiKey: string, time: number, nonce: string, organizationId:
 	const timestamp = Date.now();
 	const hmac = hmacSHA256(API_KEY, timestamp, nonce, ORGANIZATION_ID, 'GET', endpoint, null);
 
-	axios({
-		baseURL: 'https://api2.nicehash.com',
-		url: endpoint,
-		method: 'GET',
-		headers: {
-			'X-Time': timestamp,
-			'X-Nonce': nonce,
-			'X-Organization-Id': ORGANIZATION_ID,
-			'X-Request-Id': requestId,
-			'X-Auth': `${API_KEY}:${hmac}`
-		},
-	})
+	try {
 	.then(res => {
 		const { data: { data } } = res;
 		/* Test data, because I don't have mining rigs */
@@ -43,6 +32,8 @@ function hmacSHA256(apiKey: string, time: number, nonce: string, organizationId:
 		const profitability: number = profitabilities.reduce((a, b) => a + b, 0);
 		
 		console.log(`You should earn ${profitability} BTC today. (but I'm not sure...)`);
-	})
-	.catch((error: AxiosError) => console.log(error.response.data));
+	} catch (unknownError: unknown) {
+		const error = (unknownError as AxiosError).message
+		console.log(error);
+	}
 })();
