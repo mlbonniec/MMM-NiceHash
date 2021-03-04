@@ -56,11 +56,11 @@ Module.register('MMM-NiceHash', {
         const rig = document.createElement('div');
         
         if (r.status === 'MINING')
-          incomes.classList.add('rig', 'success');
+          rig.classList.add('rig', 'success');
         else if (['STOPPED', 'OFFLINE', 'ERROR'].includes(r.status))
-          incomes.classList.add('rig', 'error');
+          rig.classList.add('rig', 'error');
         else
-          incomes.classList.add('rig', 'unknown');
+          rig.classList.add('rig', 'unknown');
         
         const name = document.createElement('span');
         name.classList.add('name');
@@ -70,7 +70,7 @@ Module.register('MMM-NiceHash', {
         const temperature = document.createElement('span');
         temperature.classList.add('temperature');
         temperature.innerText = r.highestTemperature.toString();
-        rig.appendChild(name);
+        rig.appendChild(temperature);
         
         rigsWrapper.appendChild(rig);
       });
