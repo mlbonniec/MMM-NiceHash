@@ -21,26 +21,29 @@ cd MMM-NiceHash
 ```
 
 ### Step 2 - Add the configuration module
+Go to the config folder inside `path/to/MagicMirror/config`, and edit the `config.js` file. Then, add this part of code inside the `modules` list.
 ```js
-{
-	module: "MMM-NiceHash",
-	position: "top_left", // Place the module where you want
-	header: "NiceHash", // Optional
-	config: {
-		apiKey: "YOUR API KEY",
-		apiSecret: "YOUR API SECRET KEY",
-		organizationId: "YOU ORGANIZATION ID"
-	}
-}
+modules: [
+  /* Some other modules */
+  {
+    module: "MMM-NiceHash",
+    position: "top_left", // Place the module where you want
+    header: "NiceHash", // Optional
+    config: {
+      apiKey: "YOUR API KEY",
+      apiSecret: "YOUR API SECRET KEY",
+      organizationId: "YOU ORGANIZATION ID"
+    }
+  }
+]
 ```
 
-### Step 3 - Install dependencies, build the module, and run MagicMirror
+### Step 3 - Install dependencies, build the module
 ```bash
 npm i
 npm run build
-cd ../../
-npm start
 ```
+You can now run MagicMirror as you usually do.
 
 ## Use
 Now you can fully use MagicMirror and the MMM-NiceHash module to display your statistics ! Enjoy it well !
