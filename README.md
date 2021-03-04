@@ -1,6 +1,5 @@
 # MMM-NiceHash
-A module for Michael Teeuw's MagicMirror project that displays your NiceHash statistics. 
-**This module is currently in development; Actually, there's nothing related to MagicMirror. These are only tests**
+A module for Michael Teeuw's MagicMirror project that displays your NiceHash statistics.  
 
 ## Warning
 The compilation of the files is really bad. I couldn't manage to do it properly, so I use a really bad way to do it.  
