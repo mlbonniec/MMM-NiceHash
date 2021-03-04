@@ -12,9 +12,9 @@ const nh = new NiceHash(API_KEY, API_SECRET_KEY, ORGANIZATION_ID);
 
     const { totalProfitability, miningRigs }: { totalProfitability: number, miningRigs: Record<string, any>[] } = data;
     const rigs = miningRigs.map(rig => {
-      const temperatures = rig.devices.map(devices => `name: ${devices.name}, temp: ${devices.temperature}`);
-      
-      return { name: rig.name, id: rig.rigId, status: rig.minerStatus, temperatures };
+      const highestTemperature = Math.max(...rig.devices.map(devices => devices.temperature));
+
+      return { name: rig.name, id: rig.rigId, status: rig.minerStatus, highestTemperature };
     });
 
     console.log(rigs);
