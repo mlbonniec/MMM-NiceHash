@@ -34,7 +34,7 @@ Module.register('MMM-NiceHash', {
 		const rigs: { name: string, id: string, status: string, highestTemperature: number }[] = this.rigs;
     
     if (rigs.length === 0) {
-      wrapper.innerHTML = `<p>You don't have any connected rigs.</p>`
+      wrapper.innerHTML = `<p class="no-rigs">You don't have any connected rigs.</p>`
     } else {
       // Incomes
       const incomes = document.createElement('div');
