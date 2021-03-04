@@ -1,4 +1,8 @@
-/dist
 /node_modules
 
 .env
+
+# Build files
+/dist
+./MMM-NiceHash.js
+./node_helper.js
