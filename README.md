@@ -1,5 +1,7 @@
 # MMM-NiceHash
-A module for Michael Teeuw's MagicMirror project that displays your NiceHash statistics.  
+
+## Screenshot
+![MMM-NiceHash Screenshot](https://user-images.githubusercontent.com/29955402/110028479-96b23e80-7d33-11eb-8c4e-f3a973e2ae89.png)
 
 ## Warning
 The compilation of the files is really bad. I couldn't manage to do it properly, so I use a really bad way to do it.  
