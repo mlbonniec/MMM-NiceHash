@@ -1,6 +1,6 @@
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
+// import typescript from '@rollup/plugin-typescript';
 import pkg from './package.json';
 
 export default [
@@ -9,10 +9,10 @@ export default [
 	 * Written in Typescript and bundled with all dependencies.
 	 */
 	{
-		input: './src/NiceHash.ts',
+		input: './dist/NiceHash.js',
 		plugins: [
-			typescript(),
-			resolve(),
+			// typescript(),
+			resolve({browser: true}),
 			commonjs(),
 		],
 		output: {
@@ -25,9 +25,9 @@ export default [
 	 * Written in Typescript and only compiled to be used within node.
 	 */
 	{
-		input: './src/node_helper.ts',
+		input: './dist/node_helper.js',
 		plugins: [
-			typescript(),
+			// typescript(),
 		],
 		external: ['node_helper', ...Object.keys(pkg.dependencies)],
 		output: {

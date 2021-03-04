@@ -4,7 +4,8 @@
   "main": "src/app.ts",
   "scripts": {
     "dev": "ts-node -r dotenv/config .",
-    "build": "rollup -c",
+    "rollup": "rollup -c",
+    "ts": "tsc",
     "prod": "node -r dotenv/config dist/app.js",
     "start": "npm run build && npm run prod"
   },
