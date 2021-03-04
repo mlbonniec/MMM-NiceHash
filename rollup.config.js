@@ -1,41 +1,32 @@
-import commonjs from '@rollup/plugin-commonjs';
-// import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
-import pkg from './package.json';
+import { dependencies } from './package.json';
 
+const deps = Object.keys(dependencies);
 export default [
 	{
 		input: './src/MMM-NiceHash.ts',
-		plugins: [
-			typescript(),
-			// resolve(),
-			commonjs(),
-		],
-		external: ['axios'],
+		plugins: [typescript()],
+		external: [...deps],
 		output: {
 			file: './MMM-NiceHash.js',
-			format: 'iife',
+			format: 'umd',
 			globals: {
-				axios: 'axios'
-			}
+				axios: 'axios',
+			},
 		},
 	},
 	{
 		input: './src/node_helper.ts',
-		plugins: [
-			typescript(),
-			// resolve(),
-			// commonjs(),
-		],
-		external: ['node_helper', 'crypto', ...Object.keys(pkg.dependencies)],
+		plugins: [typescript()],
+		external: ['node_helper', 'crypto', ...deps],
 		output: {
 			file: './node_helper.js',
 			format: 'umd',
 			globals: {
 				axios: 'axios',
 				uuid: 'uuid',
-				crypto: 'crypto'
-			}
+				crypto: 'crypto',
+			},
 		},
 	},
 ];
