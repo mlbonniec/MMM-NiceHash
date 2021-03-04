@@ -1,4 +1,8 @@
 # MMM-NiceHash
+A module for Michael Teeuw's MagicMirror project that displays your NiceHash projected income, and rigs highest temperature. The module displays colored dots according to the state of the rig.
+* Green: If rig status is `MINING`
+* Red: If rig status is `STOPPED`, `OFFLINE`, `ERROR` or `DISABLED`
+* Grey: If rig status is `BENCHMARKING`, `PENDING`, `TRANSFERRED`, `UNKNOWN` or other else.
 
 ## Screenshot
 ![MMM-NiceHash Screenshot](https://user-images.githubusercontent.com/29955402/110028479-96b23e80-7d33-11eb-8c4e-f3a973e2ae89.png)
