@@ -18,13 +18,16 @@ const nh = new NiceHash(API_KEY, API_SECRET_KEY, ORGANIZATION_ID);
     });
 
     console.log(rigs);
-    console.log();
     
-    console.log('Your total earnings:')
-    console.log('Per day in BTC:', totalProfitability, 'and in USD:', await toCurrency(totalProfitability, 'USD'));
-    console.log('Per week:', perWeek(totalProfitability));
-    console.log('Per month:', perMonth(totalProfitability));
-    console.log('Per year:', perYear(totalProfitability));
+    const sellingPrice = await getCurrencyValue('USD');
+    const weekly = perWeek(totalProfitability);
+    const monthly = perMonth(totalProfitability)
+    const yearly = perYear(totalProfitability);
+
+    console.log('Per day in BTC:', totalProfitability, 'and in USD:', toCurrency(totalProfitability, sellingPrice));
+    console.log('Per week in BTC:', weekly, 'and in USD:', toCurrency(weekly, sellingPrice));
+    console.log('Per month in BTC:', monthly, 'and in USD:', toCurrency(monthly, sellingPrice));
+    console.log('Per year in BTC:', yearly, 'and in USD:', toCurrency(yearly, sellingPrice));
   } catch (unknownError: unknown) {
     const error = (unknownError as Error);
     
