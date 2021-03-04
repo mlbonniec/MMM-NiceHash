@@ -1,5 +1,5 @@
 import NiceHash from './helpers/nicehash';
-import { perWeek, perMonth, perYear, toCurrency } from './helpers/conversions';
+import { perWeek, perMonth, perYear, toCurrency, getCurrencyValue } from './helpers/conversions';
 
 const { API_KEY, API_SECRET_KEY, ORGANIZATION_ID } = process.env;
 const nh = new NiceHash(API_KEY, API_SECRET_KEY, ORGANIZATION_ID);

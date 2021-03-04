@@ -13,13 +13,17 @@ interface Price {
 type Currencies = typeof currencies[number];
 type Prices = Record<Currencies, Price>;
 
-export async function toCurrency (value: number, currency: Currencies): Promise<number> {
+export async function getCurrencyValue (currency: Currencies): Promise<number> {
 	if (!currencies.includes(currency))
 		throw new Error(`${currency} is not a valid currency.`);
 		
 	const { data }: { data: Prices } = await axios.get('https://blockchain.info/ticker');
 		
-	return data[currency].sell * value;
+	return data[currency].sell;
+}
+
+export function toCurrency (BTC: number, sellingPrice: number): number {
+	return BTC * sellingPrice;
 }
 
 export function perWeek(value: number): number {
