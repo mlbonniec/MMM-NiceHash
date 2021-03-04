@@ -15,8 +15,8 @@ module.exports = NodeHelper.create({
 	_getRigs: async function (payload) {
 		try {
 			const nh = new NiceHash(payload.apiKey, payload.apiSecret, payload.organizationId);
-			// const { data } = await nh.getRigs();
-			const { data } = nh.getStaticRigs();
+			const { data } = await nh.getRigs();
+			// const { data } = nh.getStaticRigs();
 			if (!data || data?.miningRigs.length === 0)
 				return this.sendSocketNotification('RIGS', null);
 
