@@ -40,6 +40,5 @@ npm start
 Now you can fully use MagicMirror and the MMM-NiceHash module to display your statistics ! Enjoy it well !
 
 ## Contributing
-If you find any problems, bugs or have questions, please [open a GitHub issue](https://github.com/mlbonniec/MMM-NiceHash/issues) in this repository.
-
-* If you like this module, you can thanks Luke :wink:
+If you find any problems, bugs or have questions, please [open a GitHub issue](https://github.com/mlbonniec/MMM-NiceHash/issues) in this repository.  
+If you like this module, you can thank Luke :wink:
