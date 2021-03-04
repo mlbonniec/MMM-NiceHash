@@ -2,6 +2,10 @@
 A module for Michael Teeuw's MagicMirror project that displays your NiceHash statistics. 
 **This module is currently in development; Actually, there's nothing related to MagicMirror. These are only tests**
 
+## Warning
+The compilation of the files is really bad. I couldn't manage to do it properly, so I use a really bad way to do it.  
+I'll solve the problem as soon as possible. I'm working on it!
+
 ## Installing
 Installing the module is quite straight forward
 ### Step 1 - Download the module into the `modules` folder
