@@ -24,7 +24,7 @@ Module.register('MMM-NiceHash', {
 	},
 	
 	getHeader: function () {
-		return this.data.header + `<span class="right">Projected Income</span>`;
+		return (this.data.header ?? 'NiceHash') + `<span class="right">Projected Income</span>`;
 	},
 	
 	getDom: function () {
