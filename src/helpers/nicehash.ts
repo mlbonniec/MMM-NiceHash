@@ -41,7 +41,7 @@ export default class NiceHash {
   }
   
   public async _getRigs (): Promise<AxiosResponse> {
-    return this.axios('/main/api/v2/mining/rigs2', 'GET');
+    return await this.axios('/main/api/v2/mining/rigs2', 'GET');
   }
   // public async getRigs () {
   //   return {
