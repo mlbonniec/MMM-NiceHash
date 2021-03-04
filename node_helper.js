@@ -189,10 +189,17 @@
 	    start: function () { },
 	    socketNotificationReceived: function (notification, payload) {
 	        return __awaiter(this, void 0, void 0, function () {
-	            var nh, data, totalProfitability, miningRigs, rigs;
 	            return __generator(this, function (_a) {
 	                if (notification !== 'GET_RIGS')
 	                    return [2 /*return*/];
+	                return [2 /*return*/, this._getRigs(payload)];
+	            });
+	        });
+	    },
+	    _getRigs: function (payload) {
+	        return __awaiter(this, void 0, void 0, function () {
+	            var nh, data, totalProfitability, miningRigs, rigs;
+	            return __generator(this, function (_a) {
 	                try {
 	                    nh = new nicehash_1.default(payload.apiKey, payload.apiSecret, payload.organizationId);
 	                    data = nh.getStaticRigs().data;
@@ -211,7 +218,7 @@
 	                return [2 /*return*/];
 	            });
 	        });
-	    }
+	    },
 	});
 
 	return node_helper;

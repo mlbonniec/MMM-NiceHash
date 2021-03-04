@@ -1604,6 +1604,8 @@
 	        this.currencySymbol = '$'; // TODO: make this value dynamic, using getCurrencyValue() 'symbol' property
 	        this.rigs = [];
 	        this.incomes = { day: 0, week: 0, year: 0 };
+	        var _a = this.config, apiKey = _a.apiKey, apiSecret = _a.apiSecret, organizationId = _a.organizationId;
+	        this.sendSocketNotification('GET_RIGS', { apiKey: apiKey, apiSecret: apiSecret, organizationId: organizationId });
 	    },
 	    getHeader: function () {
 	        return this.data.header + "<span class=\"right\">Projected Income</span>";
@@ -1621,7 +1623,9 @@
 	            incomes_1.classList.add('incomes');
 	            Object.entries(this.incomes).forEach(function (inc) {
 	                var income = document.createElement('div');
-	                income.innerHTML = inc[0] + ": " + inc[1] + "}";
+	                var period = inc[0].charAt(0).toUpperCase() + inc[0].slice(1);
+	                var earn = inc[1].toFixed(2);
+	                income.innerHTML = period + ": " + earn;
 	                incomes_1.appendChild(income);
 	            });
 	            wrapper.appendChild(incomes_1);
@@ -1656,9 +1660,7 @@
 	            return;
 	        var _a = this.config, apiKey = _a.apiKey, apiSecret = _a.apiSecret, organizationId = _a.organizationId;
 	        setInterval(function () {
-	            _this.sendSocketNotification('GET_RIGS', {
-	                apiKey: apiKey, apiSecret: apiSecret, organizationId: organizationId,
-	            });
+	            _this.sendSocketNotification('GET_RIGS', { apiKey: apiKey, apiSecret: apiSecret, organizationId: organizationId });
 	        }, 120000); // 120.000 ms, 2min
 	    },
 	    socketNotificationReceived: function (notification, payload) {
