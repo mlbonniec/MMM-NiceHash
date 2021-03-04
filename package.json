@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "main": "src/app.ts",
   "scripts": {
-    "dev": "ts-node -r dotenv/config .",
-    "rollup": "rollup -c",
-    "ts": "tsc",
-    "build": "npm run ts && npm run rollup",
-    "start": "npm run build && npm run prod"
+    "build": "rollup -c"
   },
   "engines": {
     "node": ">=12.0.0"
@@ -32,7 +28,6 @@
   "description": "",
   "dependencies": {
     "axios": "^0.21.1",
-    "dotenv": "^8.2.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -40,7 +35,6 @@
     "@types/node": "^14.14.31",
     "@types/uuid": "^8.3.0",
     "rollup": "^2.40.0",
-    "ts-node": "^9.1.1",
     "typescript": "^4.2.2"
   }
 }
