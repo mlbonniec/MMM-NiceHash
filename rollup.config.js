@@ -11,9 +11,13 @@ export default [
 			// resolve(),
 			commonjs(),
 		],
+		external: ['axios'],
 		output: {
 			file: './MMM-NiceHash.js',
 			format: 'iife',
+			globals: {
+				axios: 'axios'
+			}
 		},
 	},
 	{
@@ -23,10 +27,15 @@ export default [
 			// resolve(),
 			// commonjs(),
 		],
-		external: ['node_helper', ...Object.keys(pkg.dependencies)],
+		external: ['node_helper', 'crypto', ...Object.keys(pkg.dependencies)],
 		output: {
 			file: './node_helper.js',
 			format: 'umd',
+			globals: {
+				axios: 'axios',
+				uuid: 'uuid',
+				crypto: 'crypto'
+			}
 		},
 	},
 ];
