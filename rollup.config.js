@@ -9,14 +9,15 @@ export default [
 	 * Written in Typescript and bundled with all dependencies.
 	 */
 	{
-		input: './dist/NiceHash.js',
+		// input: './src/MMM-NiceHash.ts',
+		input: './dist/MMM-NiceHash.js',
 		plugins: [
 			// typescript(),
 			resolve({ browser: true }),
 			commonjs(),
 		],
 		output: {
-			file: './NiceHash.js',
+			file: './MMM-NiceHash.js',
 			format: 'iife',
 		},
 	},
@@ -25,6 +26,7 @@ export default [
 	 * Written in Typescript and only compiled to be used within node.
 	 */
 	{
+		// input: './src/node_helper.ts',
 		input: './dist/node_helper.js',
 		plugins: [
 			// typescript(),
