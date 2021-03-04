@@ -10,9 +10,9 @@ I'll solve the problem as soon as possible. I'm working on it!
 Installing the module is quite straight forward
 ### Step 1 - Download the module into the `modules` folder
 ```bash
-cd MagicMirror/modules # Enter to the MagicMirror module folder
-git clone https://github.com/mlbonniec/MMM-NiceHash.git # Download the module
-cd MMM-NiceHash # Enter to MMM-NiceHash folder
+cd MagicMirror/modules
+git clone https://github.com/mlbonniec/MMM-NiceHash.git
+cd MMM-NiceHash
 ```
 
 ### Step 2 - Add the configuration module
@@ -31,10 +31,10 @@ cd MMM-NiceHash # Enter to MMM-NiceHash folder
 
 ### Step 3 - Install dependencies, build the module, and run MagicMirror
 ```bash
-npm i # Install dependencies
-npm run build # Run the building script
-cd ../../ # Move to the MagicMirror folder
-npm start # Run MagicMirror
+npm i
+npm run build
+cd ../../
+npm start
 ```
 
 ## Use
