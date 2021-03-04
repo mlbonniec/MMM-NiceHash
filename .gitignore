@@ -4,5 +4,5 @@
 
 # Build files
 /dist
-./MMM-NiceHash.js
-./node_helper.js
+MMM-NiceHash.js
+node_helper.js
