@@ -30,8 +30,7 @@ Module.register('MMM-NiceHash', {
 	getDom: function () {
 		const wrapper = document.createElement('div');
     wrapper.classList.add('nicehash');
-    
-		const module = this;
+
 		const rigs: { name: string, id: string, status: string, highestTemperature: number }[] = this.rigs;
     
     if (rigs.length === 0) {
