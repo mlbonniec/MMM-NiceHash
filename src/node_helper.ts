@@ -9,6 +9,10 @@ module.exports = NodeHelper.create({
 		if (notification !== 'GET_RIGS')
 			return;
 			
+		return this._getRigs(payload);
+	},
+	
+	_getRigs: async function (payload) {
 		try {
 			const nh = new NiceHash(payload.apiKey, payload.apiSecret, payload.organizationId);
 			// const { data } = await nh.getRigs();
@@ -27,5 +31,5 @@ module.exports = NodeHelper.create({
 		} catch (unknownError: unknown) {
 			console.log((unknownError as Error).message);
 		}
-	}
+	},
 });

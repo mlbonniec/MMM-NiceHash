@@ -18,6 +18,9 @@ Module.register('MMM-NiceHash', {
     this.currencySymbol = '$'; // TODO: make this value dynamic, using getCurrencyValue() 'symbol' property
     this.rigs = [];
 	  this.incomes = { day: 0, week: 0, year: 0 };
+    
+    const { apiKey, apiSecret, organizationId } = this.config;
+    this.sendSocketNotification('GET_RIGS', { apiKey, apiSecret, organizationId });
 	},
 	
 	getHeader: function () {
@@ -39,7 +42,10 @@ Module.register('MMM-NiceHash', {
       incomes.classList.add('incomes');
       Object.entries(this.incomes).forEach(inc => {
         const income = document.createElement('div');
-        income.innerHTML = `${inc[0]}: ${inc[1]}}`;
+        const period = inc[0].charAt(0).toUpperCase() + inc[0].slice(1)
+        const earn = (inc[1] as number).toFixed(2);
+
+        income.innerHTML = `${period}: ${earn}`;
         incomes.appendChild(income);
       });
       wrapper.appendChild(incomes);
@@ -82,9 +88,7 @@ Module.register('MMM-NiceHash', {
 
     const { apiKey, apiSecret, organizationId } = this.config;
     setInterval(() => {
-      this.sendSocketNotification('GET_RIGS', {
-        apiKey, apiSecret, organizationId,
-      });
+      this.sendSocketNotification('GET_RIGS', { apiKey, apiSecret, organizationId });
     }, 120000); // 120.000 ms, 2min
   },
   
