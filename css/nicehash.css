@@ -1,0 +1,52 @@
+.nicehash {
+	display: flex;
+	flex-direction: column;
+	width: min-content;
+	line-height: 1.1;
+	font-size: 1.2rem;
+}
+
+.incomes div::after {content: '$'}
+.incomes {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: .75rem;
+}
+
+.rigs {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: .5rem 2rem;
+}
+
+.rigs .rig {
+	display: flex;
+	align-items: center;
+}
+
+.rigs .rig.success .name::before {background-color: #408140;}
+.rigs .rig.error .name::before {background-color: #e53935;}
+.rigs .rig.unknown .name::before {background-color: #767676;}
+.rigs .rig .name::before {
+	content: '';
+	position: absolute;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+}
+.rigs .rig .name {
+	padding-left: calc(.75rem + 7px);;
+	position: relative;
+	margin-right: 1.5rem;
+}
+
+.temperature::after {
+	content: '°';
+}
+.temperature {
+	text-align: right;
+	margin-left: auto;
+}

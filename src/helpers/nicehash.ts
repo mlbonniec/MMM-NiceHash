@@ -43,4 +43,36 @@ export default class NiceHash {
   public async getRigs (): Promise<AxiosResponse> {
     return await this.axios('/main/api/v2/mining/rigs2', 'GET');
   }
+  
+  public getStaticRigs (): { data: { totalProfitability: number, miningRigs: { name: string, rigId: string, minerStatus: string, devices: { temperature: number }[] }[] } } {
+    return {
+      data: {
+        totalProfitability: 0.00000235,
+        miningRigs: [
+          {
+            name: 'Rig1-2060',
+            rigId: 'azertyuiop',
+            minerStatus: 'MINING',
+            devices: [
+              { temperature: 50 },
+              { temperature: 55 },
+              { temperature: 56 },
+              { temperature: 61 },
+            ]
+          },
+          {
+            name: 'Rig2-2080ti1',
+            rigId: 'qsdfghjklm',
+            minerStatus: 'MINING',
+            devices: [
+              { temperature: 45 },
+              { temperature: 47 },
+              { temperature: 64 },
+              { temperature: 68 },
+            ]
+          }
+        ]
+      }
+    }
+  }
 }
