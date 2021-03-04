@@ -57,7 +57,7 @@ Module.register('MMM-NiceHash', {
         
         if (r.status === 'MINING')
           rig.classList.add('rig', 'success');
-        else if (['STOPPED', 'OFFLINE', 'ERROR'].includes(r.status))
+        else if (['STOPPED', 'OFFLINE', 'ERROR', 'DISABLED'].includes(r.status))
           rig.classList.add('rig', 'error');
         else
           rig.classList.add('rig', 'unknown');
