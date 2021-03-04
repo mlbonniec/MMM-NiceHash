@@ -14,13 +14,13 @@ export default class NiceHash {
     this.ORGANIZATION_ID = organizationId;
   }
   
-  private axios (url: string, method: Method): AxiosInstance {
+  private async axios (url: string, method: Method): Promise<AxiosResponse> {
     const timestamp: number = Date.now();
     const nonce: string = uuid();
     const requestId: string = uuid();
     const hmac = this.hmacSHA256(timestamp, nonce, method, url);
     
-    return axios.create({
+    return await axios[method.toLowerCase()](url, {
       baseURL: 'https://api2.nicehash.com',
       url,
       method,
@@ -41,7 +41,7 @@ export default class NiceHash {
   }
   
   public async getRigs (): Promise<AxiosResponse> {
-    const url = '/main/api/v2/mining/rigs2';
-    return this.axios(url, 'GET').get(url);
+    return this.axios('/main/api/v2/mining/rigs2', 'GET');
+  }
   }
 }
