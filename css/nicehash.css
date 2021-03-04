@@ -4,6 +4,7 @@
 	width: min-content;
 	line-height: 1.1;
 	font-size: 1.2rem;
+	white-space: nowrap;
 }
 
 .incomes div::after {content: '$'}
