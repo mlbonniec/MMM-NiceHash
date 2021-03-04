@@ -4,10 +4,13 @@ import { perWeek, perMonth, perYear, toCurrency, getCurrencyValue } from './help
 const { API_KEY, API_SECRET_KEY, ORGANIZATION_ID } = process.env;
 const nh = new NiceHash(API_KEY, API_SECRET_KEY, ORGANIZATION_ID);
 
-(async function request(): Promise<void> {
+(async function request(): Promise<void | string> {
   try {
     const { data } = await nh.getRigs();
-    const { totalProfitability, miningRigs }: { totalProfitability: number, miningRigs: Record<string, any>[] } = data ?? {};
+    if (!data || data.miningRigs.length === 0)
+      return console.log('No data');
+
+    const { totalProfitability, miningRigs }: { totalProfitability: number, miningRigs: Record<string, any>[] } = data;
     const rigs = miningRigs.map(rig => {
       const temperatures = rig.devices.map(devices => `name: ${devices.name}, temp: ${devices.temperature}`);
       
