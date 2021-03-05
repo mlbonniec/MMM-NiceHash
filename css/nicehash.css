@@ -10,8 +10,8 @@
 	white-space: nowrap;
 }
 
-.incomes div.left::before {content: '$';}
-.incomes div.right::after {content: '$';}
+.incomes .earn-left::before {content: '$';}
+.incomes .earn-right::after {content: '$';}
 .incomes {
 	display: flex;
 	justify-content: space-between;
