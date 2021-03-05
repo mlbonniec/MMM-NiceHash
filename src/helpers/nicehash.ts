@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { AxiosInstance, AxiosResponse, Method } from 'axios';
+import type { AxiosResponse, Method } from 'axios';
 import { v4 as uuid } from 'uuid';
 import { createHmac } from 'crypto';
 
