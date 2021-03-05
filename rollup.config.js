@@ -1,6 +1,6 @@
 import typescript from '@rollup/plugin-typescript';
-import commonJS from '@rollup/plugin-commonjs';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import common from '@rollup/plugin-commonjs';
+import noderesolve from '@rollup/plugin-node-resolve';
 import { dependencies } from './package.json';
 
 const deps = Object.keys(dependencies);
@@ -8,9 +8,9 @@ export default [
   {
     input: './src/MMM-NiceHash.ts',
     plugins: [
-      nodeResolve(),
       typescript(),
-      commonJS(),
+      common(),
+      noderesolve(),
     ],
     external: [...deps],
     output: {
@@ -25,14 +25,14 @@ export default [
   {
     input: './src/node_helper.ts',
     plugins: [
-      nodeResolve(),
       typescript(),
-      commonJS(),
+      common(),
+      noderesolve(),
     ],
     external: ['node_helper', 'crypto', ...deps],
     output: {
       file: './node_helper.js',
-      format: 'umd',
+      format: 'cjs',
       globals: {
         axios: 'axios',
         uuid: 'uuid',
