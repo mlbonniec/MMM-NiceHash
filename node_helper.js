@@ -191,24 +191,30 @@ module.exports = NodeHelper.create({
     },
     _getRigs: function (payload) {
         return __awaiter(this, void 0, void 0, function () {
-            var nh, data, totalProfitability, miningRigs, rigs;
+            var nh, data, totalProfitability, miningRigs, rigs, unknownError_1;
             return __generator(this, function (_a) {
-                try {
-                    nh = new NiceHash(payload.apiKey, payload.apiSecret, payload.organizationId);
-                    data = nh.getStaticRigs().data;
-                    if (!data || (data === null || data === void 0 ? void 0 : data.miningRigs.length) === 0)
-                        return [2 /*return*/, this.sendSocketNotification('RIGS', null)];
-                    totalProfitability = data.totalProfitability, miningRigs = data.miningRigs;
-                    rigs = miningRigs.map(function (rig) {
-                        var highestTemperature = Math.max.apply(Math, rig.devices.map(function (devices) { return devices.temperature; }));
-                        return { name: rig.name, id: rig.rigId, status: rig.minerStatus, highestTemperature: highestTemperature };
-                    });
-                    return [2 /*return*/, this.sendSocketNotification('RIGS', { totalProfitability: totalProfitability, rigs: rigs })];
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        nh = new NiceHash(payload.apiKey, payload.apiSecret, payload.organizationId);
+                        return [4 /*yield*/, nh.getRigs()];
+                    case 1:
+                        data = (_a.sent()).data;
+                        // const { data } = nh.getStaticRigs();
+                        if (!data || (data === null || data === void 0 ? void 0 : data.miningRigs.length) === 0)
+                            return [2 /*return*/, this.sendSocketNotification('RIGS', null)];
+                        totalProfitability = data.totalProfitability, miningRigs = data.miningRigs;
+                        rigs = miningRigs.map(function (rig) {
+                            var highestTemperature = Math.max.apply(Math, rig.devices.map(function (devices) { return devices.temperature; }));
+                            return { name: rig.name, id: rig.rigId, status: rig.minerStatus, highestTemperature: highestTemperature };
+                        });
+                        return [2 /*return*/, this.sendSocketNotification('RIGS', { totalProfitability: totalProfitability, rigs: rigs })];
+                    case 2:
+                        unknownError_1 = _a.sent();
+                        console.log(unknownError_1.message);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
                 }
-                catch (unknownError) {
-                    console.log(unknownError.message);
-                }
-                return [2 /*return*/];
             });
         });
     },
