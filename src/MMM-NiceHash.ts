@@ -32,7 +32,7 @@ Module.register('MMM-NiceHash', {
     wrapper.classList.add('nicehash');
 
 		const rigs: { name: string, id: string, status: string, highestTemperature: number }[] = this.rigs;
-    
+
     if (rigs.length === 0) {
       wrapper.innerHTML = `<p class="no-rigs">You don't have any connected rigs.</p>`
     } else {
@@ -108,7 +108,9 @@ Module.register('MMM-NiceHash', {
 
       this.updateDom();
     } catch (unknownError: unknown) {
-      console.log((unknownError as Error).message);
+      const error = unknownError as Error
+      
+      console.log(error.message, error);
     }
 	},
 });
