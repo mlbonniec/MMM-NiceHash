@@ -8,11 +8,7 @@ module.exports = NodeHelper.create({
 	socketNotificationReceived: async function(notification, payload) {
 		if (notification !== 'GET_RIGS')
 			return;
-			
-		return this._getRigs(payload);
-	},
-	
-	_getRigs: async function (payload) {
+
 		try {
 			const nh = new NiceHash(payload.apiKey, payload.apiSecret, payload.organizationId);
 			const { data } = await nh.getRigs();

@@ -182,23 +182,18 @@ module.exports = NodeHelper.create({
     start: function () { },
     socketNotificationReceived: function (notification, payload) {
         return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                if (notification !== 'GET_RIGS')
-                    return [2 /*return*/];
-                return [2 /*return*/, this._getRigs(payload)];
-            });
-        });
-    },
-    _getRigs: function (payload) {
-        return __awaiter(this, void 0, void 0, function () {
             var nh, data, totalProfitability, miningRigs, rigs, unknownError_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 3]);
+                        if (notification !== 'GET_RIGS')
+                            return [2 /*return*/];
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
                         nh = new NiceHash(payload.apiKey, payload.apiSecret, payload.organizationId);
                         return [4 /*yield*/, nh.getRigs()];
-                    case 1:
+                    case 2:
                         data = (_a.sent()).data;
                         // const { data } = nh.getStaticRigs();
                         if (!data || (data === null || data === void 0 ? void 0 : data.miningRigs.length) === 0)
@@ -209,11 +204,11 @@ module.exports = NodeHelper.create({
                             return { name: rig.name, id: rig.rigId, status: rig.minerStatus, highestTemperature: highestTemperature };
                         });
                         return [2 /*return*/, this.sendSocketNotification('RIGS', { totalProfitability: totalProfitability, rigs: rigs })];
-                    case 2:
+                    case 3:
                         unknownError_1 = _a.sent();
                         console.log(unknownError_1.message);
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
                 }
             });
         });
