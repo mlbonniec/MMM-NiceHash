@@ -14,6 +14,7 @@ If anyone know how to fix [this issue](https://github.com/rollup/plugins/issues/
 
 ## Todo
 -  Automatically retrieve the symbol corresponding to the currency
+-  Add configurable refresh time (default will be 2min)
 -  **Fix the rollup build error**
 
 ## Installing
