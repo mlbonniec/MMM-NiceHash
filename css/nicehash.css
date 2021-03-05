@@ -1,6 +1,5 @@
 .MMM-NiceHash .module-header {
 	text-align: left;
-	width: min-content;
 }
 
 .nicehash {
@@ -21,7 +20,7 @@
 .no-rigs {margin: 0; text-align: center;}
 .rigs {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	gap: .5rem 2rem;
 }
 
@@ -46,7 +45,10 @@
 .rigs .rig .name {
 	padding-left: calc(.75rem + 7px);;
 	position: relative;
-	margin-right: 1.5rem;
+	margin-right: 1rem;
+	max-width: 150px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .temperature::after {
