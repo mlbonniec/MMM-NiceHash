@@ -6,7 +6,7 @@ Module.register('MMM-NiceHash', {
     apiSecret: null,
     organizationId: null,
     currency: 'USD',
-    signPosition: 'after',
+    symbolPosition: 'after',
   },
   
   getStyles: function () {
@@ -42,7 +42,7 @@ Module.register('MMM-NiceHash', {
       incomes.classList.add('incomes');
       Object.entries(this.incomes).forEach(inc => {
         const income = document.createElement('div');
-        income.classList.add(this.config.signPosition);
+        income.classList.add(this.config.symbolPosition);
         const period = inc[0].charAt(0).toUpperCase() + inc[0].slice(1)
         const earn = (inc[1] as number).toFixed(2);
 
