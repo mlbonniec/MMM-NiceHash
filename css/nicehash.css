@@ -1,7 +1,11 @@
+.MMM-NiceHash .module-header {
+	text-align: left;
+	width: min-content;
+}
+
 .nicehash {
 	display: flex;
 	flex-direction: column;
-	width: min-content;
 	line-height: 1.1;
 	font-size: 1.2rem;
 	white-space: nowrap;
@@ -14,7 +18,7 @@
 	margin-bottom: .75rem;
 }
 
-.no-rigs {margin: 0;}
+.no-rigs {margin: 0; text-align: center;}
 .rigs {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
