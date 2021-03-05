@@ -6,8 +6,7 @@
     "dev": "ts-node -r dotenv/config .",
     "rollup": "rollup -c",
     "ts": "tsc",
-    "build": "npm run ts && npm run rollup",
-    "start": "npm run build && npm run prod"
+    "build": "npm run ts && npm run rollup"
   },
   "engines": {
     "node": ">=12.0.0"
