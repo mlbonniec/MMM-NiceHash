@@ -1568,6 +1568,7 @@
           apiSecret: null,
           organizationId: null,
           currency: 'USD',
+          symbolPosition: 'after',
       },
       getStyles: function () {
           return [
@@ -1586,6 +1587,7 @@
           return ((_a = this.data.header) !== null && _a !== void 0 ? _a : 'NiceHash') + "<span class=\"right\">Projected Income</span>";
       },
       getDom: function () {
+          var _this = this;
           var wrapper = document.createElement('div');
           wrapper.classList.add('nicehash');
           var rigs = this.rigs;
@@ -1598,6 +1600,7 @@
               incomes_1.classList.add('incomes');
               Object.entries(this.incomes).forEach(function (inc) {
                   var income = document.createElement('div');
+                  income.classList.add(_this.config.symbolPosition);
                   var period = inc[0].charAt(0).toUpperCase() + inc[0].slice(1);
                   var earn = inc[1].toFixed(2);
                   income.innerHTML = period + ": " + earn;
