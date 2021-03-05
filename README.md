@@ -37,7 +37,7 @@ cd MMM-NiceHash
     apiSecret: 'YOUR API SECRET KEY',
     organizationId: 'YOU ORGANIZATION ID',
     currency: 'USD', // Optional, default: 'USD'
-    symbolPosition: 'before' // Optional, default: 'after'
+    symbolPosition: 'left' // Optional, default: 'right'
   }
 }
 ```
