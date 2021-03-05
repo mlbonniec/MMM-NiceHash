@@ -1,7 +1,7 @@
 {
   "name": "mmm-nicehash",
   "version": "1.0.0",
-  "main": "src/app.ts",
+  "main": "./MMM-NiceHash",
   "scripts": {
     "dev": "ts-node -r dotenv/config .",
     "rollup": "rollup -c",
