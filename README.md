@@ -9,7 +9,12 @@ A module for Michael Teeuw's MagicMirror project that displays your NiceHash pro
 
 ## Warning
 The compilation of the files is really bad. I couldn't manage to do it properly, so I use a really bad way to do it.  
-I'll solve the problem as soon as possible. I'm working on it!
+I'll solve the problem as soon as possible. I'm working on it!  
+If anyone know how to fix [this issue](https://github.com/rollup/plugins/issues/828), your help is welcome.
+
+## Todo
+-  Automatically retrieve the symbol corresponding to the currency
+-  **Fix the rollup build error**
 
 ## Installing
 Installing the module is quite straight forward
@@ -23,24 +28,24 @@ cd MMM-NiceHash
 ### Step 2 - Add the configuration module
 ```js
 {
-	module: "MMM-NiceHash",
-	position: "top_left", // Place the module where you want
-	header: "NiceHash", // Optional
+	module: 'MMM-NiceHash',
+	position: 'top_left', // Place the module where you want
+	header: 'NiceHash', // Optional - default: 'NiceHash'
 	config: {
-		apiKey: "YOUR API KEY",
-		apiSecret: "YOUR API SECRET KEY",
-		organizationId: "YOU ORGANIZATION ID"
+		apiKey: 'YOUR API KEY',
+		apiSecret: 'YOUR API SECRET KEY',
+		organizationId: 'YOU ORGANIZATION ID',
+		currency: 'USD', // Optional, default: 'USD'
+    symbolPosition: 'before' // Optional, default: 'after'
 	}
 }
 ```
 
-### Step 3 - Install dependencies, build the module, and run MagicMirror
+### Step 3 - Install dependencies
 ```bash
 npm i
-npm run build
-cd ../../
-npm start
 ```
+You can now run MagicMirror as you usually do.
 
 ## Use
 Now you can fully use MagicMirror and the MMM-NiceHash module to display your statistics ! Enjoy it well !
