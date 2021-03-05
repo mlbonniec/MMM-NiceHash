@@ -1568,7 +1568,7 @@
           apiSecret: null,
           organizationId: null,
           currency: 'USD',
-          symbolPosition: 'after',
+          symbolPosition: 'right',
       },
       getStyles: function () {
           return [

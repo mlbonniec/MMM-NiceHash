@@ -6,7 +6,7 @@ Module.register('MMM-NiceHash', {
     apiSecret: null,
     organizationId: null,
     currency: 'USD',
-    symbolPosition: 'after',
+    symbolPosition: 'right',
   },
   
   getStyles: function () {
