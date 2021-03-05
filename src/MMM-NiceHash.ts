@@ -1,38 +1,38 @@
 import { getCurrencyValue, toCurrency, perWeek, perYear } from './helpers/conversions';
 
 Module.register('MMM-NiceHash', {
-	defaults: {
-		apiKey: null,
-		apiSecret: null,
-		organizationId: null,
+  defaults: {
+    apiKey: null,
+    apiSecret: null,
+    organizationId: null,
     currency: 'USD',
-	},
-	
-	getStyles: function () {
-		return [
-			this.file('css/nicehash.css'),
-		];
-	},
+  },
+  
+  getStyles: function () {
+    return [
+      this.file('css/nicehash.css'),
+    ];
+  },
 
-	start: function () {
+  start: function () {
     this.currencySymbol = '$'; // TODO: make this value dynamic, using getCurrencyValue() 'symbol' property
     this.rigs = [];
-	  this.incomes = { day: 0, week: 0, year: 0 };
+    this.incomes = { day: 0, week: 0, year: 0 };
     
     const { apiKey, apiSecret, organizationId } = this.config;
     this.sendSocketNotification('GET_RIGS', { apiKey, apiSecret, organizationId });
-	},
-	
-	getHeader: function () {
-		return (this.data.header ?? 'NiceHash') + `<span class="right">Projected Income</span>`;
-	},
-	
-	getDom: function () {
-		const wrapper = document.createElement('div');
+  },
+  
+  getHeader: function () {
+    return (this.data.header ?? 'NiceHash') + `<span class="right">Projected Income</span>`;
+  },
+  
+  getDom: function () {
+    const wrapper = document.createElement('div');
     wrapper.classList.add('nicehash');
 
-		const rigs: { name: string, id: string, status: string, highestTemperature: number }[] = this.rigs;
-    
+    const rigs: { name: string, id: string, status: string, highestTemperature: number }[] = this.rigs;
+
     if (rigs.length === 0) {
       wrapper.innerHTML = `<p class="no-rigs">You don't have any connected rigs.</p>`
     } else {
@@ -78,8 +78,8 @@ Module.register('MMM-NiceHash', {
     }
     
 
-		return wrapper;
-	},
+    return wrapper;
+  },
   
   notificationReceived: function (notification) {
     if (notification !== 'DOM_OBJECTS_CREATED')
@@ -108,7 +108,9 @@ Module.register('MMM-NiceHash', {
 
       this.updateDom();
     } catch (unknownError: unknown) {
-      console.log((unknownError as Error).message);
+      const error = unknownError as Error
+
+      console.log(error.message, error);
     }
-	},
+  },
 });
