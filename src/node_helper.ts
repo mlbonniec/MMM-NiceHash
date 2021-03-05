@@ -29,7 +29,8 @@ module.exports = NodeHelper.create({
 			
 			return this.sendSocketNotification('RIGS', { totalProfitability, rigs });
 		} catch (unknownError: unknown) {
-			console.log((unknownError as Error).message);
+			const error = unknownError as Error
+			console.log(error.message, error);
 		}
 	},
 });
