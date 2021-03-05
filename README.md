@@ -29,16 +29,16 @@ cd MMM-NiceHash
 ### Step 2 - Add the configuration module
 ```js
 {
-	module: 'MMM-NiceHash',
-	position: 'top_left', // Place the module where you want
-	header: 'NiceHash', // Optional - default: 'NiceHash'
-	config: {
-		apiKey: 'YOUR API KEY',
-		apiSecret: 'YOUR API SECRET KEY',
-		organizationId: 'YOU ORGANIZATION ID',
-		currency: 'USD', // Optional, default: 'USD'
+  module: 'MMM-NiceHash',
+  position: 'top_left', // Place the module where you want
+  header: 'NiceHash', // Optional - default: 'NiceHash'
+  config: {
+    apiKey: 'YOUR API KEY',
+    apiSecret: 'YOUR API SECRET KEY',
+    organizationId: 'YOU ORGANIZATION ID',
+    currency: 'USD', // Optional, default: 'USD'
     symbolPosition: 'before' // Optional, default: 'after'
-	}
+  }
 }
 ```
 
